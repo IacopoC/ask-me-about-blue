@@ -1,7 +1,7 @@
-const express = require('express');
-const cors = require('cors');
-const dotenv = require('dotenv');
-const OpenAi = require('openai');
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import OpenAi from "openai";
 
 dotenv.config();
 
@@ -31,4 +31,4 @@ app.post('/api/chat', async (request, response) => {
     }
 });
 
-module.exports = app;
+export default app;
