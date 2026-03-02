@@ -2,5 +2,8 @@
 </script>
 
 <template>
-  <h1>Chat Message</h1>
+  <h3>Chat Message</h3>
+  <label for="message">Message:</label>
+  <input type="text" id="chat-message" name="message">
+  <input type="submit" value="Send">
 </template>
