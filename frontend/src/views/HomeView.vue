@@ -1,9 +1,7 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import ChatMessageInput from '../components/ChatMessageInput.vue'
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+    <ChatMessageInput />
 </template>
