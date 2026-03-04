@@ -18,4 +18,7 @@ import { RouterLink, RouterView } from 'vue-router'
 </template>
 
 <style scoped>
+.logo {
+  width: 50px;
+}
 </style>
