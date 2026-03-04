@@ -38,11 +38,9 @@ async function handleSubmit() {
   <div v-for="(message, index) in messages" :key="index">
     <p>{{ message.role }}: {{ message.content }}</p>
   </div>
-
+  <p v-if="loading">I'm thinking...</p>
   <form @submit.prevent="handleSubmit">
   <input type="text" id="chat-message" v-model="messagesInput" name="message" placeholder="Write a message...">
   <button type="submit">Send</button>
   </form>
-
-  <p v-if="loading">I'm thinking...</p>
 </template>
