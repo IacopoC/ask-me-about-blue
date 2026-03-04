@@ -15,15 +15,18 @@ const openai = new OpenAi({
 
 app.post('/api/chat', async (request, response) => {
     try {
-        const { message } = request.body;
-        if(!message) return response.status(400).json({ error: "message is required" });
+        const { messages } = request.body;
+
+        if(!messages || !Array.isArray(messages)) {
+            return response.status(400).json({ error: "message is required" });
+        }
 
         const completion = await openai.chat.completions.create({
             model: "gpt-4.1-mini",
-            messages: [{ role: "user", content: message }],
+            messages: messages,
         });
 
-        const reply = completion.choices[0].message.content;
+        const reply = completion.choices[0].message;
         response.json({ reply });
     } catch (error) {
         console.error(error);
