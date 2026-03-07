@@ -53,6 +53,6 @@ watch(messages, (newMessages) => {
   <p v-if="loading">I'm thinking...</p>
   <form @submit.prevent="handleSubmit">
   <input type="text" id="chat-message" v-model="messagesInput" name="message" placeholder="Write a message...">
-  <button type="submit">Send</button>
+  <button type="submit" :disabled="loading">Send</button>
   </form>
 </template>
