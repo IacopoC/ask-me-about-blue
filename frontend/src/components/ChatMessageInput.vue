@@ -1,9 +1,16 @@
 <script setup>
-import {ref} from "vue";
+import { ref, watch, onMounted } from "vue";
 
 const messages = ref([]);
 const messagesInput = ref("");
 const loading = ref(false);
+
+onMounted(() => {
+  const chatSaved = localStorage.getItem("chatMessages");
+  if (chatSaved) {
+    messages.value = JSON.parse(chatSaved);
+  }
+});
 
 async function handleSubmit() {
   if (!messagesInput.value) return;
@@ -28,9 +35,14 @@ async function handleSubmit() {
   const data = await response.json();
 
   messages.value.push(data.reply);
+
   messagesInput.value = '';
   loading.value = false;
 }
+
+watch(messages, (newMessages) => {
+  localStorage.setItem("chatMessages", JSON.stringify(newMessages));
+}, { deep:true });
 </script>
 
 <template>
