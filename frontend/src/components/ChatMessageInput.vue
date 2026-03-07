@@ -43,6 +43,13 @@ async function handleSubmit() {
 watch(messages, (newMessages) => {
   localStorage.setItem("chatMessages", JSON.stringify(newMessages));
 }, { deep:true });
+
+function clearChat() {
+  if(!confirm("Are you sure?")) return;
+
+  messages.value = [];
+  localStorage.removeItem("chatMessages");
+}
 </script>
 
 <template>
@@ -55,4 +62,5 @@ watch(messages, (newMessages) => {
   <input type="text" id="chat-message" v-model="messagesInput" name="message" placeholder="Write a message...">
   <button type="submit" :disabled="loading">Send</button>
   </form>
+  <button type="button" @click="clearChat">Clear Chat</button>
 </template>
