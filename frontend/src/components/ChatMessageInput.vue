@@ -13,7 +13,7 @@ onMounted(() => {
 });
 
 async function handleSubmit() {
-  if (!messagesInput.value) return;
+  if (!messagesInput.value.trim()) return;
 
   messages.value.push({
     role: "user",
