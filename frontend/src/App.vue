@@ -1,24 +1,12 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
+import HeaderMain from './components/HeaderMain.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Askme logo" class="logo" src="@/assets/askme-logo.png" />
-
-    <div class="wrapper">
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
+<HeaderMain/>
   <RouterView />
 </template>
 
 <style scoped>
-.logo {
-  width: 50px;
-}
 </style>
