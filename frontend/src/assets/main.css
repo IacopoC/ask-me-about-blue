@@ -33,17 +33,18 @@ button {
 
 .left-sidebar-grid > .header {
   grid-area:header;
-  background:#f97171;
+  background: #282828;
 }
 
 .left-sidebar-grid > .main-content {
+  height: 100vh;
   grid-area:main-content;
-  background:#fff;
+  background: #181818;
 }
 
 .left-sidebar-grid > .left-sidebar {
   grid-area:left-sidebar;
-  background:#f5d55f;
+  background: #2c3e50;
 }
 
 .left-sidebar-grid > .footer {
