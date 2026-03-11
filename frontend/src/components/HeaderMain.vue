@@ -1,18 +1,19 @@
 <script setup>
-import {RouterLink} from "vue-router";
+import { RouterLink } from "vue-router";
 </script>
 
 <template>
-  <header>
+  <header class="header">
     <img alt="Askme logo" class="logo" src="@/assets/askme-logo.png" />
-
+  </header>
+  <section class="left-sidebar">
     <div class="wrapper">
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
       </nav>
     </div>
-  </header>
+  </section>
 </template>
 
 <style scoped>
