@@ -53,11 +53,13 @@ function clearChat() {
 </script>
 
 <template>
-  <h1>Chat Message</h1>
+  <h1 class="title-page">Chat Message</h1>
+  <div class="answer-wrapper">
   <div v-for="(message, index) in messages" :key="index">
     <p>{{ message.role }}: {{ message.content }}</p>
   </div>
   <p v-if="loading">I'm thinking...</p>
+  </div>
   <form @submit.prevent="handleSubmit">
   <input type="text" id="chat-message" v-model="messagesInput" name="message" size="50" placeholder="Write a message...">
   <button type="submit" class="submit-button" :disabled="loading">Send</button>
@@ -66,6 +68,14 @@ function clearChat() {
 </template>
 
 <style scoped>
+.title-page {
+  padding: 0 0 10px 0;
+}
+
+.answer-wrapper {
+  padding: 10px 0;
+}
+
 #chat-message {
   padding: 4px;
 }
