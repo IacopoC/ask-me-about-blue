@@ -7,6 +7,13 @@ body {
   font-style: normal;
 }
 
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+}
+
 p, h1, h2, h3, h4, h5, h6 {
   color: var(--vt-c-white);
 }
@@ -16,7 +23,6 @@ button {
   color: #181818;
   padding: 5px;
 }
-
 
 .left-sidebar-grid {
   display:grid;
