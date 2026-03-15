@@ -4,7 +4,7 @@ import { RouterLink } from "vue-router";
 
 <template>
   <header class="header">
-    <img alt="Askme logo" class="logo" src="@/assets/askme-logo.png" />
+    <h1 class="title-site">Ask me</h1>
   </header>
   <section class="left-sidebar">
     <div class="navigation-wrapper">
@@ -19,6 +19,10 @@ import { RouterLink } from "vue-router";
 </template>
 
 <style scoped>
+.title-site {
+  padding: 0 2.5%;
+}
+
 .logo {
   width: 50px;
 }
@@ -29,7 +33,7 @@ import { RouterLink } from "vue-router";
 
 .nav li a {
   text-decoration: none;
-  font-size: 2em;
+  font-size: 1.2em;
   color: #fff;
 }
 </style>
