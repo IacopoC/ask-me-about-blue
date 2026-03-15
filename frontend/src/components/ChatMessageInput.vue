@@ -4,6 +4,7 @@ import { ref, watch, onMounted } from "vue";
 const messages = ref([]);
 const messagesInput = ref("");
 const loading = ref(false);
+const inputRef = ref(null);
 
 onMounted(() => {
   const chatSaved = localStorage.getItem("chatMessages");
@@ -38,6 +39,7 @@ async function handleSubmit() {
 
   messagesInput.value = '';
   loading.value = false;
+  inputRef.value.focus();
 }
 
 watch(messages, (newMessages) => {
@@ -61,7 +63,7 @@ function clearChat() {
   <p v-if="loading">I'm thinking...</p>
   </div>
   <form @submit.prevent="handleSubmit">
-  <input type="text" id="chat-message" v-model="messagesInput" name="message" size="50" placeholder="Write a message...">
+  <input type="text" id="chat-message" ref="inputRef" v-model="messagesInput" name="message" size="50" placeholder="Write a message...">
   <button type="submit" class="submit-button" :disabled="loading">Send</button>
   </form>
   <button type="button" class="clear-button" @click="clearChat">Clear Chat</button>
