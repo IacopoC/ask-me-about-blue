@@ -23,10 +23,6 @@ import { RouterLink } from "vue-router";
   padding: 0 2.5%;
 }
 
-.logo {
-  width: 50px;
-}
-
 .nav li {
   list-style-type: none;
 }
