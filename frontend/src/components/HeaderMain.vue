@@ -7,10 +7,12 @@ import { RouterLink } from "vue-router";
     <img alt="Askme logo" class="logo" src="@/assets/askme-logo.png" />
   </header>
   <section class="left-sidebar">
-    <div class="wrapper">
+    <div class="navigation-wrapper">
       <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <ul class="nav">
+          <li><RouterLink to="/">Home</RouterLink></li>
+          <li><RouterLink to="/about">About</RouterLink></li>
+        </ul>
       </nav>
     </div>
   </section>
@@ -19,5 +21,15 @@ import { RouterLink } from "vue-router";
 <style scoped>
 .logo {
   width: 50px;
+}
+
+.nav li {
+  list-style-type: none;
+}
+
+.nav li a {
+  text-decoration: none;
+  font-size: 2em;
+  color: #fff;
 }
 </style>
