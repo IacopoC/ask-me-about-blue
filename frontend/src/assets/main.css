@@ -26,11 +26,13 @@ button {
 
 .left-sidebar-grid {
   display:grid;
+  height: 100vh;
   grid-template-areas:
         'header'
         'main-content'
         'left-sidebar'
         'footer';
+  grid-template-rows: auto 1fr auto auto;
 }
 
 .left-sidebar-grid > * {
@@ -43,7 +45,7 @@ button {
 }
 
 .left-sidebar-grid > .main-content {
-  height: 100vh;
+  overflow-y: auto;
   grid-area:main-content;
   background: #13293D;
 }
