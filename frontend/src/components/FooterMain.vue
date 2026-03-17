@@ -10,5 +10,7 @@ const currentYear = ref(new Date().getFullYear());
 </template>
 
 <style scoped>
-
+.footer {
+  padding: 2% 3%
+}
 </style>
