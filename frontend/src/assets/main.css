@@ -39,23 +39,23 @@ button {
 
 .left-sidebar-grid > .header {
   grid-area:header;
-  background: #282828;
+  background: #18435A;
 }
 
 .left-sidebar-grid > .main-content {
   height: 100vh;
   grid-area:main-content;
-  background: #181818;
+  background: #13293D;
 }
 
 .left-sidebar-grid > .left-sidebar {
   grid-area:left-sidebar;
-  background: #2c3e50;
+  background: #16324F;
 }
 
 .left-sidebar-grid > .footer {
   grid-area:footer;
-  background:#72c2f1;
+  background: #18435A;
 }
 
 @media (min-width:768px) {
