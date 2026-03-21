@@ -75,7 +75,7 @@ function clearChat() {
 .chat-container {
   display: flex;
   flex-direction: column;
-  height: 75vh;
+  height: 80vh;
 }
 
 .title-page {
