@@ -55,6 +55,7 @@ function clearChat() {
 </script>
 
 <template>
+  <div class="chat-container">
   <h1 class="title-page">Chat Message</h1>
   <div class="answer-wrapper">
   <div v-for="(message, index) in messages" :key="index">
@@ -62,20 +63,37 @@ function clearChat() {
   </div>
   <p v-if="loading">I'm thinking...</p>
   </div>
-  <form @submit.prevent="handleSubmit">
+  <form class="chat-input" @submit.prevent="handleSubmit">
   <input type="text" id="chat-message" ref="inputRef" v-model="messagesInput" name="message" size="50" placeholder="Write a message...">
   <button type="submit" class="submit-button" :disabled="loading">Send</button>
   </form>
   <button type="button" class="clear-button" @click="clearChat">Clear Chat</button>
+  </div>
 </template>
 
 <style scoped>
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 75vh;
+}
+
 .title-page {
   padding: 0 0 10px 0;
 }
 
 .answer-wrapper {
   padding: 10px 0;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.chat-input {
+  display: flex;
+}
+
+.chat-input input {
+  flex: 1;
 }
 
 #chat-message {
@@ -84,7 +102,7 @@ function clearChat() {
 
 .submit-button {
   border-radius: 3px;
-  margin: 10px;
+  padding: 10px;
 }
 
 .clear-button {
