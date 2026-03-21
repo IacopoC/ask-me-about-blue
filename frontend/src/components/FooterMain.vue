@@ -5,7 +5,7 @@ const currentYear = ref(new Date().getFullYear());
 
 <template>
   <footer class="footer">
-    <p>{{ currentYear }} - Ask me</p>
+    <p>{{ currentYear }} - Ask me about Blue</p>
   </footer>
 </template>
 

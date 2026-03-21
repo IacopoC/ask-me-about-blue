@@ -4,7 +4,7 @@ import { RouterLink } from "vue-router";
 
 <template>
   <header class="header">
-    <h1 class="title-site">Ask me</h1>
+    <h1 class="title-site">Ask me about Blue</h1>
   </header>
   <section class="left-sidebar">
     <div class="navigation-wrapper">
