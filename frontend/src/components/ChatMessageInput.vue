@@ -75,7 +75,8 @@ function clearChat() {
 .chat-container {
   display: flex;
   flex-direction: column;
-  height: 80vh;
+  height: 100%;
+  min-height: 0;
 }
 
 .title-page {
@@ -83,7 +84,7 @@ function clearChat() {
 }
 
 .answer-wrapper {
-  padding: 10px 0;
+  min-height: 0;
   overflow-y: auto;
   flex: 1;
 }
