@@ -19,9 +19,10 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 button {
-  background-color: var(--vt-c-white);
+  background-color: #79bdea;
   color: #181818;
   padding: 5px;
+  border-radius: 5px;
 }
 
 .left-sidebar-grid {

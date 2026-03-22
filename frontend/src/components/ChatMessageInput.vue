@@ -102,12 +102,7 @@ function clearChat() {
 }
 
 .submit-button {
-  border-radius: 3px;
   padding: 10px;
-}
-
-.clear-button {
-  border-radius: 3px;
 }
 
 </style>
