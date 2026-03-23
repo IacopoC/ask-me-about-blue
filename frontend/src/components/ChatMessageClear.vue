@@ -1,12 +1,9 @@
 <script setup>
-import { ref } from "vue";
+const emit = defineEmits(['clearChat'])
 
-const messages = ref([]);
 function clearChat() {
-  if(!confirm("Are you sure?")) return;
-
-  messages.value = [];
-  localStorage.removeItem("chatMessages");
+  if (!confirm("Are you sure?")) return;
+  emit('clearChat')
 }
 </script>
 
@@ -15,5 +12,4 @@ function clearChat() {
 </template>
 
 <style scoped>
-
 </style>
