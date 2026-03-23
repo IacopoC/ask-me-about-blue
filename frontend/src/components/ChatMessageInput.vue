@@ -1,4 +1,5 @@
 <script setup>
+import ChatMessageClear from "@/components/ChatMessageClear.vue";
 import { ref, watch, onMounted } from "vue";
 
 const messages = ref([]);
@@ -45,13 +46,6 @@ async function handleSubmit() {
 watch(messages, (newMessages) => {
   localStorage.setItem("chatMessages", JSON.stringify(newMessages));
 }, { deep:true });
-
-function clearChat() {
-  if(!confirm("Are you sure?")) return;
-
-  messages.value = [];
-  localStorage.removeItem("chatMessages");
-}
 </script>
 
 <template>
@@ -67,7 +61,7 @@ function clearChat() {
   <input type="text" id="chat-message" ref="inputRef" v-model="messagesInput" name="message" size="50" placeholder="Write a message...">
   <button type="submit" class="submit-button" :disabled="loading">Send</button>
   </form>
-  <button type="button" class="clear-button" @click="clearChat">Clear Chat</button>
+  <ChatMessageClear />
   </div>
 </template>
 
