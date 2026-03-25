@@ -46,7 +46,7 @@ async function handleSubmit() {
 
 watch(messages, (newMessages) => {
   localStorage.setItem("chatMessages", JSON.stringify(newMessages));
-}, { deep:true });
+}, { deep: true });
 
 watch(messages, async () => {
   await nextTick();
