@@ -1,11 +1,12 @@
 <script setup>
 import ChatMessageClear from "@/components/ChatMessageClear.vue";
-import { ref, watch, onMounted } from "vue";
+import { ref, watch, onMounted, nextTick } from "vue";
 
 const messages = ref([]);
 const messagesInput = ref("");
 const loading = ref(false);
 const inputRef = ref(null);
+const chatWrapper = ref(null);
 
 onMounted(() => {
   const chatSaved = localStorage.getItem("chatMessages");
@@ -47,6 +48,13 @@ watch(messages, (newMessages) => {
   localStorage.setItem("chatMessages", JSON.stringify(newMessages));
 }, { deep:true });
 
+watch(messages, async () => {
+  await nextTick();
+  if (chatWrapper.value) {
+    chatWrapper.value.scrollTop = chatWrapper.value.scrollHeight;
+  }
+}, { deep: true });
+
 function handleClearChat() {
   messages.value = [];
   localStorage.removeItem("chatMessages");
@@ -56,7 +64,7 @@ function handleClearChat() {
 <template>
   <div class="chat-container">
   <h1 class="title-page">Chat Message</h1>
-  <div class="answer-wrapper">
+  <div class="chat-wrapper" ref="chatWrapper">
   <div v-for="(message, index) in messages" :key="index">
     <p>{{ message.role }}: {{ message.content }}</p>
   </div>
@@ -82,7 +90,7 @@ function handleClearChat() {
   padding: 0 0 10px 0;
 }
 
-.answer-wrapper {
+.chat-wrapper {
   min-height: 0;
   overflow-y: auto;
   flex: 1;
