@@ -88,10 +88,6 @@ function handleClearChat() {
   min-height: 0;
 }
 
-.title-page {
-  padding: 0 0 10px 0;
-}
-
 .chat-wrapper {
   min-height: 0;
   overflow-y: auto;
