@@ -32,4 +32,10 @@ import { RouterLink } from "vue-router";
   font-size: 1.2em;
   color: #fff;
 }
+
+.nav li a.router-link-active {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: underline;
+}
 </style>
