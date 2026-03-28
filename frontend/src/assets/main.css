@@ -23,12 +23,17 @@ input {
 }
 
 button {
-  background-color: rgba(245, 240, 255, 0.7);
-  color: #181818;
+  background-color: transparent;
+  color: #fff;
   padding: 5px;
-  border: 1px solid #16324F;
+  border: 2px solid #fff;
   border-radius: 5px;
   font-size: 1em;
+}
+
+button:hover {
+  background-color: #fff;
+  color: #000;
 }
 
 .title-page {
