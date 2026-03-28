@@ -65,8 +65,10 @@ function handleClearChat() {
   <div class="chat-container">
   <h1 class="title-page">Chat Message</h1>
   <div class="chat-wrapper" ref="chatWrapper">
-  <div v-for="(message, index) in messages" :key="index">
-    <p>{{ message.role }}: {{ message.content }}</p>
+  <div v-for="(message, index) in messages" :key="index" :class="[ 'message', message.role ]">
+    <div class="bubble">
+      {{ message.content }}
+    </div>
   </div>
   <p v-if="loading">I'm thinking...</p>
   </div>
@@ -112,4 +114,36 @@ function handleClearChat() {
   padding: 10px;
 }
 
+.message {
+  display: flex;
+  margin: 6px 0;
+}
+
+.message.user {
+  justify-content: flex-end;
+}
+
+.message.assistant {
+  justify-content: flex-start;
+}
+
+.bubble {
+  max-width: 70%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.message.user .bubble {
+  background-color: #00336d;
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+.message.assistant .bubble {
+  background-color: #2c3e50;
+  color: white;
+  border-bottom-left-radius: 4px;
+}
 </style>
