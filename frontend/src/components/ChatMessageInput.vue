@@ -63,7 +63,7 @@ function handleClearChat() {
 
 <template>
   <div class="chat-container">
-  <h1 class="title-page">Chat Message</h1>
+  <h2 class="title-page">Write here something to ask: </h2>
   <div class="chat-wrapper" ref="chatWrapper">
   <div v-for="(message, index) in messages" :key="index" :class="[ 'message', message.role ]">
     <div class="bubble">

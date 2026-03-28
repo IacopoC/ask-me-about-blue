@@ -1,7 +1,8 @@
 <template>
   <main class="main-content">
   <div class="about">
-    <h1>This is an about page</h1>
+    <h2>About this project</h2>
+    <p>This is a simple web project created to use the openai api and experiment.</p>
   </div>
   </main>
 </template>
