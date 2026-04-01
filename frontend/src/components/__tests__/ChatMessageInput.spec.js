@@ -4,8 +4,7 @@ import ChatMessageInput from '@/components/ChatMessageInput.vue'
 
 describe('ChatMessageInput', () => {
   beforeEach(() => {
-    // eslint-disable-next-line no-undef
-    global.fetch = vi.fn(() =>
+    globalThis.fetch = vi.fn(() =>
       Promise.resolve({
         json: () =>
           Promise.resolve({
@@ -28,7 +27,7 @@ describe('ChatMessageInput', () => {
     await input.setValue("Hi");
     await wrapper.find("form").trigger("submit.prevent");
 
-    await new Promise(resolve => setTimeout(resolve));
+    await Promise.resolve();
 
     expect(wrapper.text()).toContain("Hi");
     expect(wrapper.text()).toContain("Answer Openai")
