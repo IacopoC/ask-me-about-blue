@@ -48,4 +48,14 @@ describe('ChatMessageInput', () => {
 
     expect(localStorage.setItem).toHaveBeenCalled();
   })
+
+  it("if clears chat works", async () => {
+    const wrapper = mount(ChatMessageInput);
+    wrapper.vm.messages.push({ role: "user", content: "Test" });
+
+    await wrapper.findComponent({ name: "ChatMessageClear" })
+      .vm.$emit("clearChat");
+
+    expect(wrapper.vm.messages.length).toBe(0);
+  });
 });
