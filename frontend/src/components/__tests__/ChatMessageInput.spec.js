@@ -1,4 +1,4 @@
-import { describe, it, vi,  beforeEach, expect } from 'vitest'
+import { describe, it, vi,  beforeEach, afterEach, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
 import ChatMessageInput from '@/components/ChatMessageInput.vue'
 
@@ -12,7 +12,12 @@ describe('ChatMessageInput', () => {
           }),
       })
     );
+    vi.spyOn(Storage.prototype, "setItem");
   });
+
+  afterEach(() => {
+    vi.restoreAllMocks()
+  })
 
   it('renders input and button', () => {
     const wrapper = mount(ChatMessageInput);
@@ -32,4 +37,15 @@ describe('ChatMessageInput', () => {
     expect(wrapper.text()).toContain("Hi");
     expect(wrapper.text()).toContain("Answer Openai")
   })
-})
+
+  it('saves messages to LocalStorage', async () => {
+    const wrapper = mount(ChatMessageInput);
+    const input = wrapper.find("input");
+
+    await input.setValue("Hi");
+    await wrapper.find("form").trigger("submit.prevent");
+    await Promise.resolve();
+
+    expect(localStorage.setItem).toHaveBeenCalled();
+  })
+});
