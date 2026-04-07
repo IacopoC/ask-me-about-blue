@@ -1,0 +1,30 @@
+### Ask me about Blue
+
+Ask me about Blue is a project that uses Openai API and explore how to work with the API and the interface.
+
+### Concept
+This project was created as a **demo** to practice Openai Api, Vue 3 and Express.js.
+
+### Features
+- Chat interface column layout
+- Chat saves the conversation in localstorage
+- Button to delete current conversation
+
+### Dependencies
+- [Vue](https://vuejs.org/)
+- [Google Fonts Sans](https://fonts.google.com/specimen/Funnel+Sans)
+- [Express.js](https://expressjs.com/)
+- [Vitest](https://vitest.dev/)
+- [Vue Router](https://router.vuejs.org/)
+
+### API
+- [Openai](https://openai.com/it-IT/api/) - Api key required
+
+### Concepts applied in the project
+- Composition API
+- ref, script setup
+- Component Events
+- Basic routing using Vue router
+- Basic npm configuration
+- Basic implementation of api request response cycle in Express.js
+- Basic testing using Vitest
