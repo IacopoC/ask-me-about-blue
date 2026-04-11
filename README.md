@@ -1,11 +1,12 @@
 ### Ask me about Blue
 
-Ask me about Blue is a project that uses Openai API and explore how to work with the API and the interface.
+Ask me about Blue is a project that uses Openai API and explore how to work with the API and the interface. The answers will be about blue color and all there is about blue. 
 
 ### Concept
 This project was created as a **demo** to practice Openai Api, Vue 3 and Express.js.
 
 ### Features
+- System role
 - Chat interface column layout
 - Chat saves the conversation in localstorage
 - Button to delete current conversation
