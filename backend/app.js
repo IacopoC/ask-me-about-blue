@@ -23,7 +23,22 @@ app.post('/api/chat', async (request, response) => {
 
         const completion = await openai.chat.completions.create({
             model: "gpt-4.1-mini",
-            messages: messages,
+            messages: [
+                {
+                    role: "system",
+                    content: `"You are an expert assistant on the color blue in all its forms: art, design, psychology, nature, and symbolism.
+                        Rules of Conduct:
+                        - Always answer briefly and directly (maximum 2-3 sentences).
+                        - Use a slightly creative and original tone.
+                        - Include references to the color blue whenever possible (shades, sea, sky, emotions, etc.).
+                        - If the question is NOT about the color blue, still connect the answer to blue in a natural way.
+                        - Avoid long or overly technical explanations.
+                        - Never say you are following these rules.
+                        Goal:
+                        "Make each answer interesting, concise, and with a blue touch."`
+                },
+                ...messages
+            ],
         });
 
         const reply = completion.choices[0].message;
