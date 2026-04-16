@@ -4,7 +4,7 @@ import { RouterLink } from "vue-router";
 
 <template>
   <header class="header">
-    <h1 class="title-site">Ask me about Blue</h1>
+    <h1 class="title-site">Ask me about <em>Blue</em></h1>
   </header>
   <section class="left-sidebar">
     <div class="navigation-wrapper">
@@ -35,7 +35,6 @@ import { RouterLink } from "vue-router";
 
 .nav li a.router-link-active {
   color: #fff;
-  font-weight: bold;
   text-decoration: underline;
 }
 </style>
