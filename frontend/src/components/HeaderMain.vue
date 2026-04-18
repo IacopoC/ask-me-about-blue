@@ -3,11 +3,16 @@ import { RouterLink } from "vue-router";
 import { ref, onMounted } from "vue";
 
 const isItalic = ref(false);
+let interval;
 
 onMounted(() => {
   setInterval(() => {
     isItalic.value = !isItalic.value;
   }, 1000)
+})
+
+onMounted(() => {
+  clearInterval(interval)
 })
 </script>
 
