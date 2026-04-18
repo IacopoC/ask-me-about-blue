@@ -3,6 +3,7 @@ import { describe, it, expect, vi } from 'vitest'
 import HeaderMain from '@/components/HeaderMain.vue'
 import { RouterLinkStub } from '@vue/test-utils'
 
+describe('HeaderMain', () => {
 it('Renders navigation links', () => {
   const wrapper = mount(HeaderMain, {
     global: {
@@ -19,7 +20,6 @@ it('Renders navigation links', () => {
   expect(links[1].props().to).toBe('/about')
 })
 
-describe('HeaderMain component renders', () => {
   it('renders texts', () => {
     const wrapper = mount(HeaderMain,  {
       global: {
