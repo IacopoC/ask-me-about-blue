@@ -57,22 +57,26 @@ button:hover {
 .left-sidebar-grid > .header {
   grid-area: header;
   background: #18435A;
+  border: 2px solid var(--vt-c-white);
 }
 
 .left-sidebar-grid > .main-content {
   overflow-y: auto;
   grid-area: main-content;
   background: #13293D;
+  border: 2px solid var(--vt-c-white);
 }
 
 .left-sidebar-grid > .left-sidebar {
   grid-area: left-sidebar;
   background: #16324F;
+  border: 2px solid var(--vt-c-white);
 }
 
 .left-sidebar-grid > .footer {
   grid-area: footer;
   background: #18435A;
+  border: 2px solid var(--vt-c-white);
 }
 
 @media (min-width:768px) {
