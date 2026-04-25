@@ -23,7 +23,7 @@ This project was created as a **demo** to practice Openai Api, Vue 3 and Express
 
 ### Concepts applied in the project
 - Composition API
-- ref, script setup
+- Use of ref, script setup
 - Component Events
 - Basic routing using Vue router
 - Basic npm configuration
