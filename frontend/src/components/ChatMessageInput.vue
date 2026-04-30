@@ -70,7 +70,7 @@ function handleClearChat() {
       {{ message.content }}
     </div>
   </div>
-  <p v-if="loading">I'm thinking...</p>
+  <p v-if="loading">I'm thinking...(it may take a while, cold start!)</p>
   </div>
   <form class="chat-input" @submit.prevent="handleSubmit">
   <input type="text" id="chat-message" ref="inputRef" v-model="messagesInput" name="message" size="50" placeholder="Write a message...">
