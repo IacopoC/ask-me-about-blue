@@ -24,7 +24,8 @@ import AskmeBalloonImage from '@/assets/img/ask-me-blue-balloon.jpg';
 }
 
 .askme-balloon {
-  padding: 10px 0;
+  border: 4px solid white;
+  margin: 20px 0;
   width: 100%;
 }
 </style>
