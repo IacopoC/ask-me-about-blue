@@ -75,7 +75,7 @@ function handleClearChat() {
   <p v-if="loading">I'm thinking...(it may take a while, cold start!)</p>
   </div>
   <form class="chat-input" @submit.prevent="handleSubmit">
-  <input type="text" id="chat-message" ref="inputRef" v-model="messagesInput" name="message" size="50" placeholder="Write a message...">
+  <input type="text" id="chat-message" ref="inputRef" v-model="messagesInput" name="message" placeholder="Write something about blue...">
   <button type="submit" class="submit-button" :disabled="loading">Send</button>
   </form>
     <ChatMessageClear @clearChat="handleClearChat" />
