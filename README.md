@@ -6,7 +6,7 @@ Ask me about Blue is a project that uses Openai API and explore how to work with
 This project was created as a **demo** to practice Openai Api, Vue 3 and Express.js.
 
 ### Features
-- System role
+- System role api setting
 - Chat interface column layout
 - Chat saves the conversation in localstorage
 - Button to delete current conversation
