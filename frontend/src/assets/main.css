@@ -1,7 +1,8 @@
 @import './base.css';
 
 body {
-  font-family: "Funnel Sans", sans-serif;
+  font-family: "Indie Flower", cursive;
+  font-weight: 400;
   font-optical-sizing: auto;
   font-style: normal;
 }
