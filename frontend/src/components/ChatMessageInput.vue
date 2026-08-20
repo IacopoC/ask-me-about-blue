@@ -43,7 +43,6 @@ async function handleSubmit() {
 
   messagesInput.value = '';
   loading.value = false;
-  inputRef.value.focus();
 }
 
 watch(messages, (newMessages) => {
