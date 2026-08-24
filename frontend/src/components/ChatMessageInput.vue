@@ -72,7 +72,7 @@ function handleClearChat() {
       {{ message.content }}
     </div>
   </div>
-  <p v-if="loading">I'm thinking...(it may take a while, cold start!)</p>
+  <p v-if="loading" class="thinking">I'm thinking...(it may take a while, cold start!)</p>
   </div>
   <form class="chat-input" @submit.prevent="handleSubmit">
   <input type="text" id="chat-message" ref="inputRef" v-model="messagesInput" name="message" placeholder="Write something about blue...">
@@ -143,5 +143,18 @@ function handleClearChat() {
   background-color: #2c3e50;
   color: white;
   border-bottom-left-radius: 4px;
+}
+
+.thinking {
+  animation: thinking-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes thinking-pulse {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 </style>
