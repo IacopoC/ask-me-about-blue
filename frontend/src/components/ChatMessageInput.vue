@@ -19,6 +19,7 @@ async function handleSubmit() {
   if (!messagesInput.value.trim()) return;
 
   messages.value.push({
+    id: crypto.randomUUID(),
     role: "user",
     content: messagesInput.value,
   });
@@ -66,7 +67,7 @@ function handleClearChat() {
   <div class="chat-container">
   <h2 v-if="messages.length === 0" class="title-page">How can I help you? I know everything about blue... </h2>
   <div class="chat-wrapper" ref="chatWrapper">
-  <div v-for="(message, index) in messages" :key="index" :class="[ 'message', message.role ]">
+  <div v-for="message in messages" :key="message.id" :class="[ 'message', message.role ]">
     <div class="bubble">
       {{ message.content }}
     </div>
