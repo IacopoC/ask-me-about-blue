@@ -33,7 +33,16 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.title-site {
+.header {
+  background-color: #18435A;
+  transition: background-color 2s 500ms;
+}
+
+.header:hover {
+  background-color: #13293D;
+}
+
+.site-title {
   padding: 0 2.5%;
 }
 
