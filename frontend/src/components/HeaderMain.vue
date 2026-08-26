@@ -42,7 +42,7 @@ onMounted(() => {
   background-color: #13293D;
 }
 
-.site-title {
+.title-site {
   padding: 0 2.5%;
 }
 
