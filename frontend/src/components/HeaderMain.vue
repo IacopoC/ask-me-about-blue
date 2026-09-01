@@ -1,6 +1,8 @@
 <script setup>
 import { RouterLink } from "vue-router";
 import { ref, onMounted } from "vue";
+import { House } from "@lucide/vue";
+import { MessageCircleQuestionMark } from "@lucide/vue";
 
 const isItalic = ref(false);
 let interval;
@@ -24,8 +26,8 @@ onMounted(() => {
     <div class="navigation-wrapper">
       <nav>
         <ul class="nav">
-          <li><RouterLink to="/">Home</RouterLink></li>
-          <li><RouterLink to="/about">About</RouterLink></li>
+          <li><RouterLink to="/">Home <House :size="18" /></RouterLink></li>
+          <li><RouterLink to="/about">About <MessageCircleQuestionMark :size="18" /></RouterLink></li>
         </ul>
       </nav>
     </div>
