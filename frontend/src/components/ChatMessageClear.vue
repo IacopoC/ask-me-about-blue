@@ -1,4 +1,5 @@
 <script setup>
+import { Trash2 } from "@lucide/vue";
 const emit = defineEmits(['clearChat'])
 
 function clearChat() {
@@ -8,7 +9,7 @@ function clearChat() {
 </script>
 
 <template>
-  <button type="button" class="clear-button" @click="clearChat">Clear Chat</button>
+  <button type="button" class="clear-button" @click="clearChat">Clear Chat <Trash2 /></button>
 </template>
 
 <style scoped>
