@@ -78,7 +78,7 @@ function handleClearChat() {
   </div>
   <form class="chat-input" @submit.prevent="handleSubmit">
   <input type="text" id="chat-message" ref="inputRef" v-model="messagesInput" name="message" placeholder="Write something about blue...">
-  <button type="submit" class="submit-button" :disabled="loading">Send <Send /></button>
+  <button type="submit" class="submit-button" :disabled="loading">Send <Send :size="22"/></button>
   </form>
     <ChatMessageClear @clearChat="handleClearChat" />
   </div>

@@ -9,7 +9,7 @@ function clearChat() {
 </script>
 
 <template>
-  <button type="button" class="clear-button" @click="clearChat">Clear Chat <Trash2 /></button>
+  <button type="button" class="clear-button" @click="clearChat">Clear Chat <Trash2 :size="18" /></button>
 </template>
 
 <style scoped>
