@@ -17,6 +17,7 @@ This project was created as a **demo** to practice Openai Api, Vue 3 and Express
 - [Express.js](https://expressjs.com/)
 - [Vitest](https://vitest.dev/)
 - [Vue Router](https://router.vuejs.org/)
+- [Lucide icons](https://lucide.dev/)
 
 ### API
 - [Openai](https://openai.com/it-IT/api/) - Api key required
