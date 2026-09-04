@@ -58,10 +58,6 @@ function cancelClearChat() {
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
 }
 
-.modal h2 {
-  margin: 0 0 12px;
-}
-
 .modal p {
   margin: 0 0 24px;
   color: #666;
