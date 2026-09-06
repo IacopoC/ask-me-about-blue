@@ -13,7 +13,7 @@ This project was created as a **demo** to practice Openai Api, Vue 3 and Express
 
 ### Dependencies
 - [Vue](https://vuejs.org/)
-- [Google Fonts Sans](https://fonts.google.com/specimen/Funnel+Sans)
+- [Google Fonts Sans](https://fonts.google.com/specimen/Indie+Flower)
 - [Express.js](https://expressjs.com/)
 - [Vitest](https://vitest.dev/)
 - [Vue Router](https://router.vuejs.org/)
