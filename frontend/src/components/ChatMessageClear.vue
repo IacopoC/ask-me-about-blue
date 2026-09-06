@@ -53,14 +53,19 @@ function cancelClearChat() {
 .modal {
   width: min(90%, 420px);
   padding: 24px;
-  background: white;
+  background-color: #18435A;
+  transition: background-color 2s 500ms;
   border-radius: 12px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
 }
 
+.modal:hover {
+  background-color: #13293D;
+}
+
 .modal p {
   margin: 0 0 24px;
-  color: #666;
+  color: #fff;
   line-height: 1.5;
 }
 
@@ -74,14 +79,20 @@ function cancelClearChat() {
   padding: 8px 16px;
   border: 0;
   border-radius: 8px;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .cancel-button {
-  background: #ccc;
+  background: #585252;
 }
 
 .confirm-button {
   background: #d33;
   color: white;
+}
+
+.cancel-button:hover, .confirm-button:hover {
+  color: #000;
+  background-color: #fff;
 }
 </style>
