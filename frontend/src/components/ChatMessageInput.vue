@@ -1,5 +1,6 @@
 <script setup>
 import ChatMessageClear from "@/components/ChatMessageClear.vue";
+import { sendMessage } from "@/services/chatApi.js";
 import { ref, watch, onMounted, nextTick } from "vue";
 import { WavesHorizontal } from "@lucide/vue";
 import { Send } from "@lucide/vue";
@@ -18,34 +19,35 @@ onMounted(() => {
 });
 
 async function handleSubmit() {
-  if (!messagesInput.value.trim()) return;
+  const content = messagesInput.value.trim();
+
+  if (!content || loading.value) return;
 
   messages.value.push({
     id: crypto.randomUUID(),
     role: "user",
-    content: messagesInput.value,
+    content,
   });
-
-  loading.value = true;
-
-  const API_URL = import.meta.env.VITE_API_BASE_URL;
-
-  const response = await fetch(`${API_URL}/api/chat`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      messages: messages.value,
-    }),
-  });
-
-  const data = await response.json();
-
-  messages.value.push(data.reply);
 
   messagesInput.value = '';
-  loading.value = false;
+  loading.value = true;
+
+  try {
+    const reply = await sendMessage(messages.value);
+    messages.value.push(reply);
+
+  } catch (error) {
+    console.error("Error sending message:", error);
+
+    messages.value.push({
+      role: "assistant",
+      content: "Sorry, something went wrong.",
+    });
+
+   } finally {
+     loading.value = false;
+     inputRef.value?.focus();
+  }
 }
 
 watch(messages, (newMessages) => {
