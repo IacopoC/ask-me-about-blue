@@ -6,7 +6,7 @@ import { sendMessage } from '@/services/chatApi.js'
 vi.mock("@/services/chatApi", () => ({
   sendMessage: vi.fn(),
 }));
-describe('ChatMessageInput', () => {
+describe('ChatMessage', () => {
   beforeEach(() => {
     globalThis.fetch = vi.fn(() =>
       Promise.resolve({
