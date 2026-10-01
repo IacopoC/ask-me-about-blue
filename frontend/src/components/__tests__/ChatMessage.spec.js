@@ -1,7 +1,11 @@
 import { describe, it, vi,  beforeEach, afterEach, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
 import ChatMessage from '@/components/ChatMessage.vue'
+import { sendMessage } from '@/services/chatApi.js'
 
+vi.mock("@/services/chatApi", () => ({
+  sendMessage: vi.fn(),
+}));
 describe('ChatMessageInput', () => {
   beforeEach(() => {
     globalThis.fetch = vi.fn(() =>
@@ -25,18 +29,25 @@ describe('ChatMessageInput', () => {
     expect(wrapper.find("button").exists()).toBe(true);
   })
 
-  it('sends message and receive Openai reply', async () => {
+  it("sends message and receive Openai reply", async () => {
+    sendMessage.mockResolvedValue({
+      id: crypto.randomUUID(),
+      role: "assistant",
+      content: "Answer Openai",
+    });
+
     const wrapper = mount(ChatMessage);
     const input = wrapper.find("input");
 
     await input.setValue("Hi");
     await wrapper.find("form").trigger("submit.prevent");
 
-    await Promise.resolve();
+    await vi.waitFor(() => {
+      expect(wrapper.text()).toContain("Answer Openai");
+    });
 
     expect(wrapper.text()).toContain("Hi");
-    expect(wrapper.text()).toContain("Answer Openai")
-  })
+  });
 
   it('saves messages to LocalStorage', async () => {
     const wrapper = mount(ChatMessage);
