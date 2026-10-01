@@ -1,9 +1,9 @@
 <script setup>
-import ChatMessageInput from '../components/ChatMessageInput.vue'
+import ChatMessage from '../components/ChatMessage.vue'
 </script>
 
 <template>
   <main class="main-content">
-    <ChatMessageInput />
+    <ChatMessage />
   </main>
 </template>

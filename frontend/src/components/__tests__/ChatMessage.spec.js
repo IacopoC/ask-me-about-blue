@@ -1,6 +1,6 @@
 import { describe, it, vi,  beforeEach, afterEach, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
-import ChatMessageInput from '@/components/ChatMessageInput.vue'
+import ChatMessage from '@/components/ChatMessage.vue'
 
 describe('ChatMessageInput', () => {
   beforeEach(() => {
@@ -20,13 +20,13 @@ describe('ChatMessageInput', () => {
   })
 
   it('renders input and button', () => {
-    const wrapper = mount(ChatMessageInput);
+    const wrapper = mount(ChatMessage);
     expect(wrapper.find("input").exists()).toBe(true);
     expect(wrapper.find("button").exists()).toBe(true);
   })
 
   it('sends message and receive Openai reply', async () => {
-    const wrapper = mount(ChatMessageInput);
+    const wrapper = mount(ChatMessage);
     const input = wrapper.find("input");
 
     await input.setValue("Hi");
@@ -39,7 +39,7 @@ describe('ChatMessageInput', () => {
   })
 
   it('saves messages to LocalStorage', async () => {
-    const wrapper = mount(ChatMessageInput);
+    const wrapper = mount(ChatMessage);
     const input = wrapper.find("input");
 
     await input.setValue("Hi");
@@ -50,7 +50,7 @@ describe('ChatMessageInput', () => {
   })
 
   it("if clears chat works", async () => {
-    const wrapper = mount(ChatMessageInput);
+    const wrapper = mount(ChatMessage);
     wrapper.vm.messages.push({ role: "user", content: "Test" });
 
     await wrapper.findComponent({ name: "ChatMessageClear" })
