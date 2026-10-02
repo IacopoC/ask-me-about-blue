@@ -6,7 +6,7 @@
 This project was created as a **demo** to practice Openai Api, Vue 3 and Express.js.
 
 ### Features
-- System role api setting
+- System role api setting for conversations
 - Chat interface column layout
 - Chat saves the conversation in localstorage
 - Button, modal window to delete current conversation
