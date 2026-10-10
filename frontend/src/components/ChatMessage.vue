@@ -169,4 +169,28 @@ function handleClearChat() {
     opacity: 1;
   }
 }
+
+.color-palette {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 10px;
+}
+
+.color-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.color-swatch {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.color-item code {
+  font-size: 12px;
+}
 </style>
