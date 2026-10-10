@@ -16,5 +16,11 @@ export async function sendMessage(messages) {
   }
 
   const data = await response.json();
-  return data.reply;
+
+  return {
+    id: crypto.randomUUID(),
+    role: "assistant",
+    content: data.text,
+    colors: data.colors ?? [],
+  }
 }

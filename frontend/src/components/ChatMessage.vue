@@ -42,6 +42,7 @@ async function handleSubmit() {
     messages.value.push({
       role: "assistant",
       content: "Sorry, something went wrong.",
+      colors: [],
     });
 
    } finally {
@@ -75,6 +76,13 @@ function handleClearChat() {
     <div class="bubble">
       {{ message.content }}
     </div>
+    <div class="color-palette">
+    <div v-for="color in message.colors" :key="color.hex" class="color-item">
+      <div class="color-swatch" :style="{ backgroundColor: color.hex }"></div>
+      <span>{{ color.name }}</span>
+      <code>{{ color.hex }}</code>
+    </div>
+      </div>
   </div>
   <p v-if="loading" class="thinking">I'm thinking...(it may take a while, cold start!)</p>
   </div>
