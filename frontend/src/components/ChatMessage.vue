@@ -192,5 +192,9 @@ function handleClearChat() {
 
 .color-item code {
   font-size: 12px;
+  color: blue;
+  padding: 8px;
+  background-color: white;
+  border-radius: 25px;
 }
 </style>
