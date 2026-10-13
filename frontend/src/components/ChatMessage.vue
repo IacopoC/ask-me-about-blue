@@ -40,6 +40,7 @@ async function handleSubmit() {
     console.error("Error sending message:", error);
 
     messages.value.push({
+      id: crypto.randomUUID(),
       role: "assistant",
       content: "Sorry, something went wrong.",
       colors: [],
