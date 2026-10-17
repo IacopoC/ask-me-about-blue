@@ -2,7 +2,6 @@
 import ChatMessageClear from "@/components/ChatMessageClear.vue";
 import { sendMessage } from "@/services/chatApi.js";
 import { ref, watch, onMounted, nextTick } from "vue";
-import { WavesHorizontal } from "@lucide/vue";
 import { Send } from "@lucide/vue";
 
 const messages = ref([]);
@@ -71,7 +70,7 @@ function handleClearChat() {
 
 <template>
   <div class="chat-container">
-  <h2 v-if="messages.length === 0" class="title-page">How can I help you? I know everything about blue... <WavesHorizontal /> </h2>
+  <h2 v-if="messages.length === 0" class="title-page">How can I help you? I know everything about blue...</h2>
   <div class="chat-wrapper" ref="chatWrapper">
   <div v-for="message in messages" :key="message.id" :data-id="message.id" :class="[ 'message', message.role ]">
     <div class="bubble">
