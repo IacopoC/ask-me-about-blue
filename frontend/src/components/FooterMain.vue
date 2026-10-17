@@ -15,6 +15,6 @@ const currentYear = ref(new Date().getFullYear());
 }
 
 .footer {
-  padding: 1% 3%
+  padding: 1% 3%;
 }
 </style>
