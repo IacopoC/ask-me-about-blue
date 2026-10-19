@@ -87,4 +87,8 @@ app.post('/api/chat', async (request, response) => {
     }
 });
 
+app.get("/api/ip", (request, response) => {
+   response.json({ip: request.ip});
+});
+
 export default app;
