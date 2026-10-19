@@ -86,7 +86,7 @@ button:hover {
 
 @media (min-width:768px) {
   .left-sidebar-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 220px 1fr 1fr;
     grid-template-areas:
             'header header header'
             'left-sidebar main-content main-content'
