@@ -2,18 +2,43 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import OpenAi from "openai";
+import { rateLimit } from "express-rate-limit"
 
 dotenv.config();
 
 const app = express();
-app.use(cors());
-app.use(express.json());
 
 const openai = new OpenAi({
     apiKey: process.env.OPENAI_API_KEY,
 });
 
-app.post('/api/chat', async (request, response) => {
+app.set("trust proxy", 1);
+
+const generalLimit = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    limit: 100,
+    standardHeaders: "draft-8",
+    legacyHeaders: false,
+    message: {
+        error:"Too many requests. Try again later"
+    }
+})
+
+const aiLimit = rateLimit({
+    windowMs: 60 * 1000,
+    limit: 5,
+    standardHeaders: "draft-8",
+    legacyHeaders: false,
+    message: {
+        error:"You reach the limit. Try again later"
+    }
+})
+
+app.use(cors(), generalLimit);
+
+app.use(express.json({ limit: "10kb"}));
+
+app.post('/api/chat', aiLimit, async (request, response) => {
     try {
         const { messages } = request.body;
 
@@ -83,7 +108,7 @@ app.post('/api/chat', async (request, response) => {
 
     } catch (error) {
         console.error(error);
-        response.status(500).json({ error: error.message });
+        response.status(500).json({ error: "Error during generation response" });
     }
 });
 
