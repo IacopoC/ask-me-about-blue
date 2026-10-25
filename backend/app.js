@@ -20,7 +20,7 @@ const generalLimit = rateLimit({
     standardHeaders: "draft-8",
     legacyHeaders: false,
     message: {
-        error:"Too many requests. Try again later"
+        error: "Too many requests. Try again later"
     }
 })
 
@@ -30,7 +30,7 @@ const aiLimit = rateLimit({
     standardHeaders: "draft-8",
     legacyHeaders: false,
     message: {
-        error:"You reach the limit. Try again later"
+        error: "You reach the limit. Try again later"
     }
 })
 
