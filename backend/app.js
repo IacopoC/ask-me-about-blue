@@ -64,7 +64,7 @@ app.post('/api/chat', aiLimit, async (request, response) => {
                 },
                 ...messages
             ],
-
+            max_completion_tokens: 1000,
             response_format: {
                 type: "json_schema",
                 json_schema: {
