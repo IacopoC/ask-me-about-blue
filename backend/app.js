@@ -111,8 +111,4 @@ app.post('/api/chat', aiLimit, async (request, response) => {
     }
 });
 
-app.get("/api/ip", (request, response) => {
-   response.json({ip: request.ip});
-});
-
 export default app;
