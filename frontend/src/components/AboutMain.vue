@@ -23,7 +23,7 @@ import AskmeBeachImage from "@/assets/img/ask-me-beach-abstract.jpg";
 
 <style scoped>
 .p-top {
-  padding: 10px 0 0 0;
+  padding: 10px 0;
 }
 
 .img-container {
