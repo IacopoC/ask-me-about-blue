@@ -34,9 +34,21 @@ const aiLimit = rateLimit({
     }
 })
 
-app.use(cors(), generalLimit);
+const allowedOrigins = [
+    process.env.FRONTEND_URL,
+    ...(process.env.NODE_ENV !== "production" ? ["http://localhost:5173", "http://localhost:3000"]: []),
+].filter(Boolean);
 
-app.use(express.json({ limit: "10kb"}));
+app.use(cors({
+    origin: (origin, callback) => {
+    if(!origin || allowedOrigins.includes(origin)) {
+        return callback(null, true);
+    }
+    return callback(new Error("Origin not authorized in CORS"))
+    },
+}));
+
+app.use(express.json({ limit: "10kb"}), generalLimit);
 
 app.post('/api/chat', aiLimit, async (request, response) => {
     try {
