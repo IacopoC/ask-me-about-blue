@@ -5,7 +5,7 @@ const currentYear = ref(new Date().getFullYear());
 
 <template>
   <footer class="footer">
-    <p>{{ currentYear }} | Ask me about Blue - Created using <a class="white-link" href="https://openai.com/it-IT/api/">Openai API</a></p>
+    <p>© {{ currentYear }} | Ask me about Blue - Created using <a class="white-link" href="https://openai.com/it-IT/api/">OpenAI API</a></p>
   </footer>
 </template>
 
