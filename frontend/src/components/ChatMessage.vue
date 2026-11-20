@@ -3,6 +3,7 @@ import ChatMessageClear from "@/components/ChatMessageClear.vue";
 import { sendMessage } from "@/services/chatApi.js";
 import { ref, watch, onMounted, nextTick } from "vue";
 import { Send } from "@lucide/vue";
+import { useClipboard } from "@/composables/useClipboard.js";
 
 const messages = ref([]);
 const messagesInput = ref("");
@@ -66,6 +67,8 @@ function handleClearChat() {
   messages.value = [];
   localStorage.removeItem("chatMessages");
 }
+
+const { copiedText, error, copy } = useClipboard()
 </script>
 
 <template>
@@ -81,6 +84,8 @@ function handleClearChat() {
       <div class="color-swatch" :style="{ backgroundColor: color.hex }"></div>
       <span>{{ color.name }}</span>
       <code>{{ color.hex }}</code>
+      <button @click="copy(color.hex)">{{ copiedText === color.hex ? 'Copied!' : 'Copy' }}</button>
+      <p v-if="error">Error during copy!</p>
     </div>
       </div>
   </div>
