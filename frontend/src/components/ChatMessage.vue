@@ -2,7 +2,7 @@
 import ChatMessageClear from "@/components/ChatMessageClear.vue";
 import { sendMessage } from "@/services/chatApi.js";
 import { ref, watch, onMounted, nextTick } from "vue";
-import { Send } from "@lucide/vue";
+import { Send, Copy } from "@lucide/vue";
 import { useClipboard } from "@/composables/useClipboard.js";
 
 const messages = ref([]);
@@ -85,7 +85,7 @@ const { copiedText, error, copy, isSupported } = useClipboard()
       <span>{{ color.name }}</span>
       <code>{{ color.hex }}</code>
       <div v-if="isSupported">
-      <button @click="copy(color.hex)">{{ copiedText === color.hex ? 'Copied!' : 'Copy' }}</button>
+      <button @click="copy(color.hex)">{{ copiedText === color.hex ? 'Copied!' : 'Copy' }} <Copy :size="18"/></button>
       <p v-if="error">Error during copy!</p>
         </div>
       <div v-else>
