@@ -68,7 +68,7 @@ function handleClearChat() {
   localStorage.removeItem("chatMessages");
 }
 
-const { copiedText, error, copy } = useClipboard()
+const { copiedText, error, copy, isSupported } = useClipboard()
 </script>
 
 <template>
@@ -84,8 +84,13 @@ const { copiedText, error, copy } = useClipboard()
       <div class="color-swatch" :style="{ backgroundColor: color.hex }"></div>
       <span>{{ color.name }}</span>
       <code>{{ color.hex }}</code>
+      <div v-if="isSupported">
       <button @click="copy(color.hex)">{{ copiedText === color.hex ? 'Copied!' : 'Copy' }}</button>
       <p v-if="error">Error during copy!</p>
+        </div>
+      <div v-else>
+        <p>Clipboard is not supported by your browser.</p>
+      </div>
     </div>
       </div>
   </div>
