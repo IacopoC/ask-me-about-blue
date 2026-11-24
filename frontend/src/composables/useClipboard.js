@@ -26,6 +26,7 @@ export function useClipboard() {
       return true
     } catch(errorClipboard) {
       error.value = errorClipboard
+      copiedText.value = null
       return false
     }
   }
