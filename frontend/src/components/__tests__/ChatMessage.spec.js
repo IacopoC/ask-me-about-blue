@@ -1,5 +1,7 @@
+// @vitest-environment jsdom
+
 import { describe, it, vi,  beforeEach, afterEach, expect } from 'vitest'
-import { mount } from '@vue/test-utils'
+import { mount, flushPromises } from '@vue/test-utils'
 import ChatMessage from '@/components/ChatMessage.vue'
 import { sendMessage } from '@/services/chatApi.js'
 
@@ -21,6 +23,7 @@ describe('ChatMessage', () => {
 
   afterEach(() => {
     vi.restoreAllMocks()
+    vi.unstubAllGlobals()
   })
 
   it('renders input and button', () => {
@@ -69,4 +72,44 @@ describe('ChatMessage', () => {
 
     expect(wrapper.vm.messages.length).toBe(0);
   });
+
+  it('should copy the selected color when clicking the button', async () => {
+    const writeText = vi.fn().mockResolvedValue(undefined)
+
+    vi.stubGlobal('navigator', {
+      clipboard: { writeText }
+    })
+
+    const messages = [
+      {
+        id: '1',
+        role: 'assistant',
+        content: 'Here are your colors!',
+        colors: [
+          { name: 'White', hex: '#FFFFFF' },
+          { name: 'Red', hex: '#FF0000' }
+        ]
+       }
+      ]
+
+    localStorage.setItem('chatMessages', JSON.stringify(messages))
+    const wrapper = mount(ChatMessage)
+
+    await flushPromises()
+    const colorItems = wrapper.findAll('.color-item')
+
+    expect(colorItems).toHaveLength(2)
+
+    const firstButton = colorItems[0].find('button')
+    const secondButton = colorItems[1].find('button')
+
+    await firstButton.trigger('click')
+    await flushPromises()
+
+    expect(writeText).toHaveBeenCalledWith('#FFFFFF')
+    expect(firstButton.text()).toContain('Copied!')
+    expect(secondButton.text()).toContain('Copy')
+
+    wrapper.unmount()
+  })
 });
