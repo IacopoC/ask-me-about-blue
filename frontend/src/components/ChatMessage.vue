@@ -136,7 +136,7 @@ const { copiedText, error, copy, isSupported } = useClipboard()
 
 .message {
   display: flex;
-  margin: 6px 0;
+  margin: 10px 0 5px 0;
 }
 
 .message.user {
@@ -145,6 +145,12 @@ const { copiedText, error, copy, isSupported } = useClipboard()
 
 .message.assistant {
   justify-content: flex-start;
+}
+
+@media (max-width: 768px) {
+  .message.assistant {
+    flex-direction: column;
+  }
 }
 
 .bubble {
