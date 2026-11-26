@@ -9,7 +9,9 @@ This project was created as a **demo** to practice OpenAI Api, Vue 3 and Express
 - System role api setting for conversations
 - Chat interface column layout
 - Chat saves the conversation in localstorage
+- Examples of colors and palettes available in the assistant's response
 - Button, modal window to delete current conversation
+- Color copying in hex format
 
 ### Dependencies
 - [Vue](https://vuejs.org/)
@@ -20,6 +22,7 @@ This project was created as a **demo** to practice OpenAI Api, Vue 3 and Express
 - [Lucide icons](https://lucide.dev/)
 - [Express Rate Limit](https://www.npmjs.com/package/express-rate-limit)
 - [Nodemon](https://www.npmjs.com/package/nodemon)
+- [Jsdom](https://www.npmjs.com/package/jsdom)
 
 ### API
 - [Openai](https://openai.com/it-IT/api/) - Api key required
